@@ -1,4 +1,5 @@
 import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View, Input, Text } from '@tarojs/components'
 import { ITouchEvent, CommonEvent } from '@tarojs/components/types/common'
 import PropTypes, { InferProps } from 'prop-types'

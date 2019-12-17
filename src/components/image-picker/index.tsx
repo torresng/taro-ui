@@ -1,5 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View, Image } from '@tarojs/components'
 import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'

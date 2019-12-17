@@ -1,5 +1,6 @@
 import PropTypes, { InferProps } from 'prop-types'
 import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import classNames from 'classnames'
 import { View, Text } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'

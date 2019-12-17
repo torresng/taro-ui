@@ -30,7 +30,7 @@
   "eslintConfig": {
     "extends": [
       "o2team",
-      "taro"
+      "plugin:react/recommended"
     ],
     "parser": "babel-eslint",
     "env": {
@@ -57,6 +57,9 @@
         }
       ]
     },
+    "plugins": [
+      "react"
+    ],
     "overrides": [
       {
         "files": [
@@ -78,7 +81,7 @@
           "no-unused-vars": [
             "error",
             {
-              "varsIgnorePattern": "Nerv"
+              "varsIgnorePattern": "React"
             }
           ]
         }
@@ -214,8 +217,9 @@
     "bind-decorator": "^1.0.11",
     "classnames": "^2.2.6",
     "dayjs": "^1.7.7",
-    "lodash": "^4.17.10",
-    "prop-types": "^15.6.2"
+    "lodash": "^4.17.15",
+    "prop-types": "^15.6.2",
+    "react": "^16.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-rc.1",
@@ -270,7 +274,7 @@
     "eslint-config-taro": "^2.0.3",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jest": "^23.1.1",
-    "eslint-plugin-react": "^7.8.2",
+    "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^2.1.1",
     "favicons-webpack-plugin": "2.1.0",
     "file-loader": "^5.0.2",

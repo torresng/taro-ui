@@ -1,4 +1,5 @@
 import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View, ScrollView } from '@tarojs/components'
 import { CommonEvent, ITouchEvent } from '@tarojs/components/types/common'
 import PropTypes, { InferProps } from 'prop-types'
@@ -46,13 +47,13 @@ export default class AtTabs extends AtComponent<AtTabsProps, AtTabsState> {
       switch (ENV) {
         case Taro.ENV_TYPE.WEAPP:
         case Taro.ENV_TYPE.ALIPAY:
-        case Taro.ENV_TYPE.SWAN:
+        case Taro.ENV_TYPE.SWAN: {
           const index = Math.max(idx - 1, 0)
           this.setState({
             _scrollIntoView: `tab${index}`
           })
           break
-
+        }
         case Taro.ENV_TYPE.WEB: {
           const index = Math.max(idx - 1, 0)
           const prevTabItem = this.tabHeaderRef.childNodes[index]

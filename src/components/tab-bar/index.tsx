@@ -1,9 +1,9 @@
 import classNames from 'classnames'
+import * as React from 'nervjs'
 import PropTypes, { InferProps } from 'prop-types'
 import { AtTabBarProps, TabItem } from 'types/tab-bar'
 import { Image, Text, View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
-import Taro from '@tarojs/taro'
 import AtComponent from '../../common/component'
 import AtBadge from '../badge/index'
 
@@ -29,11 +29,11 @@ export default class AtTabBar extends AtComponent<AtTabBarProps> {
   //   }
   // }
 
-  private handleClick (index: number, event: CommonEvent): void {
+  private handleClick(index: number, event: CommonEvent): void {
     this.props.onClick(index, event)
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const {
       customStyle,
       className,

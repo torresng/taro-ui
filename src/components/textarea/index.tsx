@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View, Textarea } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import PropTypes, { InferProps } from 'prop-types'

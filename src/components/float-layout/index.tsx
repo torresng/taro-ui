@@ -1,5 +1,5 @@
 /* eslint-disable taro/function-naming */
-import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View, Text, ScrollView } from '@tarojs/components'
 import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
