@@ -1,4 +1,4 @@
-import Taro from '@tarojs/taro'
+import React from 'nervjs'
 import { View } from '@tarojs/components'
 import { AtButton, AtIcon, AtProgress } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
@@ -10,12 +10,15 @@ interface ProgressPageState {
   percent: number
 }
 
-export default class ProgressPage extends Taro.Component<{}, ProgressPageState> {
+export default class ProgressPage extends React.Component<
+  {},
+  ProgressPageState
+> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
+  public constructor() {
     super(...arguments)
     this.state = {
       percent: 0
@@ -48,7 +51,7 @@ export default class ProgressPage extends Taro.Component<{}, ProgressPageState> 
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const { percent } = this.state
     return (
       <View className='page progress-page'>

@@ -1,4 +1,5 @@
 import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View } from '@tarojs/components'
 import { AtSearchBar } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
@@ -9,12 +10,12 @@ interface IndexState {
   [key: string]: string
 }
 
-export default class Index extends Taro.Component<{}, IndexState> {
+export default class Index extends React.Component<{}, IndexState> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
+  public constructor() {
     super(...arguments)
     this.state = {
       value1: '',
@@ -24,13 +25,13 @@ export default class Index extends Taro.Component<{}, IndexState> {
     }
   }
 
-  private onChange (stateName: string, value: string): void {
+  private onChange(stateName: string, value: string): void {
     this.setState({
       [stateName]: value
     })
   }
 
-  private onActionClick (): void {
+  private onActionClick(): void {
     Taro.showToast({
       title: '开始搜索',
       icon: 'success',
@@ -38,7 +39,7 @@ export default class Index extends Taro.Component<{}, IndexState> {
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}

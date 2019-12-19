@@ -1,4 +1,5 @@
 import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View } from '@tarojs/components'
 import { AtImagePicker } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
@@ -24,38 +25,41 @@ interface IndexState {
   [key: string]: DogaImage[]
 }
 
-export default class Index extends Taro.Component<{}, IndexState> {
+export default class Index extends React.Component<{}, IndexState> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
+  public constructor() {
     super(...arguments)
     this.state = {
       files1: Array.from(dogaImages),
       files2: Array.from(dogaImages),
       files3: Array.from(dogaImages),
-      files4: dogaImages.concat([{
-        url: 'https://storage.360buyimg.com/mtd/home/36549825_887087111478302_5745542532574478336_n1543234831971.jpg'
-      }])
+      files4: dogaImages.concat([
+        {
+          url:
+            'https://storage.360buyimg.com/mtd/home/36549825_887087111478302_5745542532574478336_n1543234831971.jpg'
+        }
+      ])
     }
   }
 
-  private onChange (stateName: string, files: DogaImage[]): void {
+  private onChange(stateName: string, files: DogaImage[]): void {
     this.setState({
       [stateName]: files
     })
   }
 
-  private onFail (mes: string): void {
+  private onFail(mes: string): void {
     console.log(mes)
   }
 
-  private onImageClick (index: number, file: DogaImage): void {
+  private onImageClick(index: number, file: DogaImage): void {
     console.log(index, file)
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}

@@ -1,4 +1,4 @@
-import Taro from '@tarojs/taro'
+import React from 'nervjs'
 import { View } from '@tarojs/components'
 import classNames from 'classnames'
 import AtComponent from '../../../common/component'
@@ -9,7 +9,8 @@ export default class AtSwipeActionOptions extends AtComponent<AtSwipeActionOptio
   private trrigerOptionsDomUpadte (): void {
     delayQuerySelector(
       this,
-      `#swipeActionOptions-${this.props.componentId}`
+      `#swipeActionOptions-${this.props.componentId}`,
+      100
     ).then(res => {
       this.props.onQueryedDom(res[0])
     })

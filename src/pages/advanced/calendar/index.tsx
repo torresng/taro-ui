@@ -1,13 +1,11 @@
-import bind from 'bind-decorator';
-import { AtButton, AtCalendar } from 'taro-ui';
-
-import { View } from '@tarojs/components';
-import Taro, { Component } from '@tarojs/taro';
-
-import DocsHeader from '../../components/doc-header';
+import * as React from 'nervjs'
+import { AtButton, AtCalendar } from 'taro-ui'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
+import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class Index extends Component {
+export default class Index extends React.Component {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro日历组件展示'
   }
@@ -40,35 +38,37 @@ export default class Index extends Component {
     ]
   }
 
-  @bind
-  private handleClick (key: string, value: string): void {
+  private handleClick(key: string, value: string): void {
     this.setState({
       [key]: value
     })
   }
 
-  @bind
-  private handleDayClick (...arg): void {
+  private handleDayClick(...arg): void {
     console.log('handleDayClick', arg)
   }
 
-  @bind
-  private handleDayLongClick (...arg): void {
+  private handleDayLongClick(...arg): void {
     console.log('handleDayLongClick', arg)
   }
 
-  @bind
-  private handleDateChange (arg): void {
+  private handleDateChange(arg): void {
     console.log('handleDateChange', arg)
   }
 
-  @bind
-  private handleMonthChange (arg): void {
+  private handleMonthChange(arg): void {
     console.log('handleMonthChange', arg)
   }
 
-  public render (): JSX.Element {
-    const { now, minDate, maxDate, mark, multiCurentDate, validDates } = this.state
+  public render(): JSX.Element {
+    const {
+      now,
+      minDate,
+      maxDate,
+      mark,
+      multiCurentDate,
+      validDates
+    } = this.state
     return (
       <View className='page calendar-page'>
         <DocsHeader title='Calendar 日历' />
@@ -153,7 +153,7 @@ export default class Index extends Component {
           <View className='panel'>
             <View className='panel__title'>垂直滑动</View>
             <View className='panel__content'>
-              <AtCalendar isVertical onSelectDate={this.handleDateChange}/>
+              <AtCalendar isVertical onSelectDate={this.handleDateChange} />
             </View>
           </View>
 
@@ -183,7 +183,7 @@ export default class Index extends Component {
           <View className='panel'>
             <View className='panel__title'>有效时间组</View>
             <View className='panel__content'>
-              <AtCalendar validDates={validDates}/>
+              <AtCalendar validDates={validDates} />
             </View>
           </View>
         </View>

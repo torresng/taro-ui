@@ -1,31 +1,29 @@
-import Taro from '@tarojs/taro'
-import { View, Button } from '@tarojs/components'
+import React from 'nervjs'
 import {
   AtButton,
+  AtIndexes,
   AtModal,
-  AtModalHeader,
-  AtModalContent,
   AtModalAction,
-  AtIndexes
+  AtModalContent,
+  AtModalHeader
 } from 'taro-ui'
-
+import { Button, View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import DocsHeader from '../../components/doc-header'
-
 import mockData from '../../navigation/indexes/mock-data'
-
 import './index.scss'
 
 interface ModalPageState {
   [key: string]: boolean
 }
 
-export default class ModalPage extends Taro.Component<{}, ModalPageState> {
+export default class ModalPage extends React.Component<{}, ModalPageState> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
-    super(...arguments)
+  public constructor() {
+    super()
     this.state = {
       isOpened1: false,
       isOpened2: false,
@@ -42,7 +40,6 @@ export default class ModalPage extends Taro.Component<{}, ModalPageState> {
   }
 
   private closeModal = (type: string, msg: string): void => {
-    console.log(msg)
     this.setState({
       [`isOpened${type}`]: false
     })
@@ -64,7 +61,7 @@ export default class ModalPage extends Taro.Component<{}, ModalPageState> {
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const { isOpened1, isOpened2, isOpened3, isOpened4, isOpened5 } = this.state
 
     return (
@@ -185,9 +182,7 @@ export default class ModalPage extends Taro.Component<{}, ModalPageState> {
           onConfirm={this.closeModalConfirm.bind(this, 3, '点击了确认')}
           cancelText='取消'
           confirmText='确认'
-        >
-
-        </AtModal>
+        ></AtModal>
 
         {/* 简化使用 */}
         <AtModal
@@ -203,7 +198,11 @@ export default class ModalPage extends Taro.Component<{}, ModalPageState> {
 
         <AtModal isOpened={isOpened5}>
           <AtModalContent>
-            <AtIndexes list={mockData} topKey='Top' customStyle={{ height: '400px' }}>
+            <AtIndexes
+              list={mockData}
+              topKey='Top'
+              customStyle={{ height: '400px' }}
+            >
               <View className='custom-area'>用户自定义内容</View>
             </AtIndexes>
           </AtModalContent>

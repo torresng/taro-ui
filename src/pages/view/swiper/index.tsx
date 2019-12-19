@@ -1,5 +1,12 @@
-import Taro from '@tarojs/taro'
-import { View, Text, Swiper, SwiperItem, Slider, Image } from '@tarojs/components'
+import * as React from 'nervjs'
+import {
+  View,
+  Text,
+  Swiper,
+  SwiperItem,
+  Slider,
+  Image
+} from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import { AtList, AtListItem } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
@@ -15,12 +22,12 @@ interface SwiperPageState {
   imgUrls: string[]
 }
 
-export default class SwiperPage extends Taro.Component<{}, SwiperPageState> {
+export default class SwiperPage extends React.Component<{}, SwiperPageState> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
+  public constructor() {
     super(...arguments)
     this.state = {
       current: 1,
@@ -67,8 +74,16 @@ export default class SwiperPage extends Taro.Component<{}, SwiperPageState> {
     })
   }
 
-  public render (): JSX.Element {
-    const { current, isAutoplay, duration, isCircular, interval, hasIndicatorDots, imgUrls } = this.state
+  public render(): JSX.Element {
+    const {
+      current,
+      isAutoplay,
+      duration,
+      isCircular,
+      interval,
+      hasIndicatorDots,
+      imgUrls
+    } = this.state
 
     return (
       <View className='page'>
@@ -94,20 +109,33 @@ export default class SwiperPage extends Taro.Component<{}, SwiperPageState> {
                   indicatorDots={hasIndicatorDots}
                   previousMargin='20'
                 >
-                  {
-                    imgUrls.map((item, idx) => (
-                      <SwiperItem key={idx}>
-                        <Image src={item} className='slide-image' />
-                      </SwiperItem>
-                    ))
-                  }
+                  {imgUrls.map((item, idx) => (
+                    <SwiperItem key={idx}>
+                      <Image src={item} className='slide-image' />
+                    </SwiperItem>
+                  ))}
                 </Swiper>
 
                 <View className='control-cnt'>
                   <AtList>
-                    <AtListItem title='指示点' switchIsCheck={hasIndicatorDots} isSwitch onSwitchChange={this.setIndicatorDots} />
-                    <AtListItem title='自动播放' switchIsCheck={isAutoplay} isSwitch onSwitchChange={this.setAutoPlay} />
-                    <AtListItem title='循环播放' switchIsCheck={isCircular} isSwitch onSwitchChange={this.setCircular} />
+                    <AtListItem
+                      title='指示点'
+                      switchIsCheck={hasIndicatorDots}
+                      isSwitch
+                      onSwitchChange={this.setIndicatorDots}
+                    />
+                    <AtListItem
+                      title='自动播放'
+                      switchIsCheck={isAutoplay}
+                      isSwitch
+                      onSwitchChange={this.setAutoPlay}
+                    />
+                    <AtListItem
+                      title='循环播放'
+                      switchIsCheck={isCircular}
+                      isSwitch
+                      onSwitchChange={this.setCircular}
+                    />
                   </AtList>
 
                   <View className='slider-list'>
@@ -148,7 +176,6 @@ export default class SwiperPage extends Taro.Component<{}, SwiperPageState> {
               </View>
             </View>
           </View>
-
         </View>
         {/* E Body */}
       </View>

@@ -1,4 +1,5 @@
 import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View } from '@tarojs/components'
 import { AtRadio } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
@@ -14,12 +15,12 @@ interface IndexState {
   radioOptions3: RadioOption<string>[]
 }
 
-export default class Index extends Taro.Component<{}, IndexState> {
+export default class Index extends React.Component<{}, IndexState> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
-  
-  public constructor () {
+
+  public constructor() {
     super(...arguments)
     this.state = {
       radioValue1: 'option1',
@@ -38,30 +39,35 @@ export default class Index extends Taro.Component<{}, IndexState> {
       radioOptions3: [
         { label: '单选项一', value: 'option1', desc: '单选项描述' },
         { label: '单选项二', value: 'option2' },
-        { label: '单选项三禁用', value: 'option3', desc: '单选项描述', disabled: true }
-      ],
+        {
+          label: '单选项三禁用',
+          value: 'option3',
+          desc: '单选项描述',
+          disabled: true
+        }
+      ]
     }
   }
 
-  private handleRadioChange (value: string): void {
+  private handleRadioChange(value: string): void {
     this.setState({
       radioValue1: value
     })
   }
 
-  private handleRadioChangeScnd (value: string): void {
+  private handleRadioChangeScnd(value: string): void {
     this.setState({
       radioValue2: value
     })
   }
 
-  private handleRadioChangeThd (value: string): void {
+  private handleRadioChangeThd(value: string): void {
     this.setState({
       radioValue3: value
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}
@@ -75,7 +81,11 @@ export default class Index extends Taro.Component<{}, IndexState> {
             <View className='panel__title'>基础用法</View>
             <View className='panel__content no-padding'>
               <View className='radio-container'>
-                <AtRadio options={this.state.radioOptions1} value={this.state.radioValue1} onClick={this.handleRadioChange.bind(this)} />
+                <AtRadio
+                  options={this.state.radioOptions1}
+                  value={this.state.radioValue1}
+                  onClick={this.handleRadioChange.bind(this)}
+                />
               </View>
             </View>
           </View>
@@ -85,7 +95,11 @@ export default class Index extends Taro.Component<{}, IndexState> {
             <View className='panel__title'>含有单项描述</View>
             <View className='panel__content no-padding'>
               <View className='radio-container'>
-                <AtRadio options={this.state.radioOptions2} value={this.state.radioValue2} onClick={this.handleRadioChangeScnd.bind(this)} />
+                <AtRadio
+                  options={this.state.radioOptions2}
+                  value={this.state.radioValue2}
+                  onClick={this.handleRadioChangeScnd.bind(this)}
+                />
               </View>
             </View>
           </View>
@@ -95,7 +109,11 @@ export default class Index extends Taro.Component<{}, IndexState> {
             <View className='panel__title'>单项禁用</View>
             <View className='panel__content no-padding'>
               <View className='radio-container'>
-                <AtRadio options={this.state.radioOptions3} value={this.state.radioValue3} onClick={this.handleRadioChangeThd.bind(this)} />
+                <AtRadio
+                  options={this.state.radioOptions3}
+                  value={this.state.radioValue3}
+                  onClick={this.handleRadioChangeThd.bind(this)}
+                />
               </View>
             </View>
           </View>

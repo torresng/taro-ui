@@ -1,22 +1,24 @@
-import { AtButton, AtFloatLayout } from 'taro-ui';
-
-import { View } from '@tarojs/components';
-import { CommonEvent } from '@tarojs/components/types/common';
-import Taro from '@tarojs/taro';
-
-import DocsHeader from '../../components/doc-header';
+import * as React from 'nervjs'
+import { AtButton, AtFloatLayout } from 'taro-ui'
+import { View } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
+import Taro from '@tarojs/taro'
+import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
 interface FloatLayoutPageState {
   [key: string]: boolean
 }
 
-export default class FloatLayoutPage extends Taro.Component<{}, FloatLayoutPageState> {
+export default class FloatLayoutPage extends React.Component<
+  {},
+  FloatLayoutPageState
+> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
+  public constructor() {
     super(...arguments)
     this.state = {
       isOpened1: false,
@@ -50,7 +52,7 @@ export default class FloatLayoutPage extends Taro.Component<{}, FloatLayoutPageS
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const { isOpened1, isOpened2, isOpened3 } = this.state
 
     return (

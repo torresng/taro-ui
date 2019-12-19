@@ -1,4 +1,5 @@
 import Taro from '@tarojs/taro'
+import React from 'nervjs'
 import { View, Text } from '@tarojs/components'
 import { AtActionSheet, AtActionSheetItem, AtButton } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
@@ -11,12 +12,15 @@ interface ActionSheetPageState {
   [key: string]: boolean
 }
 
-export default class ActionSheetPage extends Taro.Component<{}, ActionSheetPageState> {
+export default class ActionSheetPage extends React.Component<
+  {},
+  ActionSheetPageState
+> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
+  public constructor() {
     super(...arguments)
     this.state = {
       isOpened1: false,
@@ -49,7 +53,7 @@ export default class ActionSheetPage extends Taro.Component<{}, ActionSheetPageS
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const { isOpened1, isOpened2, isOpened3 } = this.state
 
     return (

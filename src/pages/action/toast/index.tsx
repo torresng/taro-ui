@@ -1,4 +1,4 @@
-import Taro, { Component } from '@tarojs/taro'
+import React from 'nervjs'
 import { View } from '@tarojs/components'
 import { AtToast, AtButton } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
@@ -24,12 +24,12 @@ interface ToastPageState {
   isOpened: boolean
 }
 
-export default class ToastPage extends Component<{}, ToastPageState> {
+export default class ToastPage extends React.Component<{}, ToastPageState> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
+  public constructor() {
     super(...arguments)
     this.state = INIT_STATE
   }
@@ -50,7 +50,7 @@ export default class ToastPage extends Component<{}, ToastPageState> {
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const {
       text,
       icon,

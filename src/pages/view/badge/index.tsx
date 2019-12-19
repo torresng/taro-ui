@@ -1,15 +1,15 @@
-import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View } from '@tarojs/components'
 import { AtBadge, AtButton } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class BadgePage extends Taro.Component {
+export default class BadgePage extends React.Component {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const dot = '···'
 
     return (
@@ -27,7 +27,9 @@ export default class BadgePage extends Taro.Component {
               <View className='badge-item'>
                 <View className='subitem'>
                   <AtBadge value='10' maxValue={99}>
-                    <AtButton size='small' circle>按钮</AtButton>
+                    <AtButton size='small' circle>
+                      按钮
+                    </AtButton>
                   </AtBadge>
                 </View>
                 <View className='subitem'>
@@ -46,7 +48,9 @@ export default class BadgePage extends Taro.Component {
               <View className='badge-item'>
                 <View className='subitem'>
                   <AtBadge dot>
-                    <AtButton size='small' circle>按钮</AtButton>
+                    <AtButton size='small' circle>
+                      按钮
+                    </AtButton>
                   </AtBadge>
                 </View>
                 <View className='subitem'>
@@ -65,7 +69,9 @@ export default class BadgePage extends Taro.Component {
               <View className='badge-item'>
                 <View className='subitem'>
                   <AtBadge value='NEW'>
-                    <AtButton size='small' circle>按钮</AtButton>
+                    <AtButton size='small' circle>
+                      按钮
+                    </AtButton>
                   </AtBadge>
                 </View>
                 <View className='subitem'>
@@ -84,7 +90,9 @@ export default class BadgePage extends Taro.Component {
               <View className='badge-item'>
                 <View className='subitem'>
                   <AtBadge value={dot}>
-                    <AtButton size='small' circle>按钮</AtButton>
+                    <AtButton size='small' circle>
+                      按钮
+                    </AtButton>
                   </AtBadge>
                 </View>
                 <View className='subitem'>

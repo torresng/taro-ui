@@ -1,13 +1,12 @@
-import { AtList, AtListItem } from 'taro-ui';
-
-import { View } from '@tarojs/components';
-import { CommonEvent } from '@tarojs/components/types/common';
-import Taro, { Component } from '@tarojs/taro';
-
-import DocsHeader from '../../components/doc-header';
+import * as React from 'nervjs'
+import { AtList, AtListItem } from 'taro-ui'
+import { View } from '@tarojs/components'
+import { CommonEvent } from '@tarojs/components/types/common'
+import Taro from '@tarojs/taro'
+import DocsHeader from '../../components/doc-header'
 import './index.scss'
 
-export default class ListPage extends Component {
+export default class ListPage extends React.Component {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
@@ -20,7 +19,7 @@ export default class ListPage extends Component {
     console.log('Click Item', e)
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     return (
       <View className='page'>
         <DocsHeader title='List 列表' />
@@ -102,7 +101,7 @@ export default class ListPage extends Component {
                     iconInfo={{
                       size: 25,
                       color: '#78A4FA',
-                      value: 'calendar',
+                      value: 'calendar'
                     }}
                   />
                   <AtListItem
@@ -113,7 +112,7 @@ export default class ListPage extends Component {
                     iconInfo={{
                       size: 25,
                       color: '#FF4949',
-                      value: 'bookmark',
+                      value: 'bookmark'
                     }}
                   />
                 </AtList>

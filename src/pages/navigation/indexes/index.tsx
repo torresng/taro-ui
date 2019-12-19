@@ -1,4 +1,4 @@
-import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View } from '@tarojs/components'
 import { AtIndexes, AtSearchBar } from 'taro-ui'
 import mockData, { CityItem } from './mock-data'
@@ -8,32 +8,32 @@ interface IndexesState {
   value: string
 }
 
-export default class Index extends Taro.Component<{}, IndexesState> {
+export default class Index extends React.Component<{}, IndexesState> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
+  public constructor() {
     super(...arguments)
     this.state = {
       value: ''
     }
   }
 
-  public componentDidMount (): void {
+  public componentDidMount(): void {
     console.log(this.scrollIntoView)
     // this.scrollIntoView && this.scrollIntoView('top', 0)
   }
 
-  private scrollIntoView (key: string): void {
+  private scrollIntoView(key: string): void {
     console.log('不需要实际实现', key)
   }
-  
-  private onClick (item: CityItem): void {
+
+  private onClick(item: CityItem): void {
     console.log(item)
   }
 
-  private handleActionClick (): void {
+  private handleActionClick(): void {
     if (!this.state.value) {
       return
     }
@@ -43,13 +43,13 @@ export default class Index extends Taro.Component<{}, IndexesState> {
     this.scrollIntoView && this.scrollIntoView(this.state.value.toUpperCase())
   }
 
-  private handleChange (value: string): void {
+  private handleChange(value: string): void {
     this.setState({
       value
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     return (
       <View className='page' style='height: 100vh;'>
         {/* 基础用法 */}
@@ -58,11 +58,18 @@ export default class Index extends Taro.Component<{}, IndexesState> {
             list={mockData}
             topKey='Top'
             onClick={this.onClick.bind(this)}
-            onScrollIntoView={fn => { this.scrollIntoView = fn }}
+            onScrollIntoView={fn => {
+              this.scrollIntoView = fn
+            }}
           >
             <View className='custom-area'>
               用户自定义内容
-              <AtSearchBar value={this.state.value} onChange={this.handleChange.bind(this)} placeholder='跳转到指定Key' onActionClick={this.handleActionClick.bind(this)} />
+              <AtSearchBar
+                value={this.state.value}
+                onChange={this.handleChange.bind(this)}
+                placeholder='跳转到指定Key'
+                onActionClick={this.handleActionClick.bind(this)}
+              />
             </View>
           </AtIndexes>
         </View>

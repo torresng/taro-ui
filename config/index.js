@@ -1,6 +1,6 @@
-/* eslint-disable import/no-commonjs */
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const webpack = require('webpack')
 
 const isBuildComponent = process.env.TARO_BUILD_TYPE === 'component'
 
@@ -9,23 +9,41 @@ const config = {
   designWidth: 750,
   sourceRoot: 'src',
   outputRoot: isBuildComponent ? 'dist' : `dist/${process.env.TARO_ENV}`,
-  plugins: {},
-  babel: {
-    sourceMap: true,
-    presets: [
-      'env'
-    ],
-    plugins: [
-      'transform-class-properties',
-      'transform-decorators-legacy',
-      'transform-object-rest-spread'
-    ]
-  },
   defineConstants: {},
   alias: {
-    'taro-ui': path.resolve(__dirname, '../src/ui.ts'),
+    'taro-ui': path.resolve(__dirname, '../src/ui.ts')
   },
-  mini: {},
+  plugins: {
+    babel: {
+      sourceMap: true,
+      presets: ['env'],
+      plugins: [
+        'transform-class-properties',
+        'transform-decorators-legacy',
+        'transform-object-rest-spread'
+      ]
+    }
+  },
+  framework: 'react',
+  mini: {
+    webpackChain(chain) {
+      chain.merge({
+        devtool: 'source-map',
+        plugins: [
+          new webpack.ProvidePlugin({
+            window: ['@tarojs/runtime', 'window'],
+            document: ['@tarojs/runtime', 'document']
+          })
+        ],
+        resolve: {
+          alias: {
+            nervjs: 'react',
+            'react-dom': '@tarojs/react'
+          }
+        }
+      })
+    }
+  },
   h5: {
     staticDirectory: 'static',
     postcss: {
@@ -33,7 +51,7 @@ const config = {
         enable: true
       }
     }
-  },
+  }
 }
 
 if (isBuildComponent) {
@@ -57,22 +75,24 @@ if (isBuildComponent) {
         classnames: 'commonjs2 classnames',
         '@tarojs/components': 'commonjs2 @tarojs/components',
         '@tarojs/taro-h5': 'commonjs2 @tarojs/taro-h5',
-        'weui': 'commonjs2 weui'
+        weui: 'commonjs2 weui'
       },
       plugin: {
         extractCSS: {
           plugin: MiniCssExtractPlugin,
-          args: [{
-            filename: 'css/index.css',
-            chunkFilename: 'css/[id].css'
-          }]
+          args: [
+            {
+              filename: 'css/index.css',
+              chunkFilename: 'css/[id].css'
+            }
+          ]
         }
       }
     })
   }
 }
 
-module.exports = function (merge) {
+module.exports = function(merge) {
   if (process.env.NODE_ENV === 'development') {
     return merge({}, config, require('./dev'))
   }

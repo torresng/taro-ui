@@ -1,4 +1,4 @@
-import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View, Image } from '@tarojs/components'
 import { AtCurtain, AtButton } from 'taro-ui'
 import DocsHeader from '../../components/doc-header'
@@ -7,37 +7,43 @@ import './index.scss'
 
 interface TagPageState {
   isOpened: boolean
-  closeBtnPosition: 'top' | 'top-left' | 'top-right' | 'bottom' | 'bottom-left' | 'bottom-right'
+  closeBtnPosition:
+    | 'top'
+    | 'top-left'
+    | 'top-right'
+    | 'bottom'
+    | 'bottom-left'
+    | 'bottom-right'
   [key: string]: string | boolean
 }
 
-export default class TagPage extends Taro.Component<{}, TagPageState> {
+export default class TagPage extends React.Component<{}, TagPageState> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
+  public constructor() {
     super(...arguments)
     this.state = {
       isOpened: false,
-      closeBtnPosition: 'bottom',
+      closeBtnPosition: 'bottom'
     }
   }
 
-  private handleChange (stateName: string, value: string): void {
+  private handleChange(stateName: string, value: string): void {
     this.setState({
       isOpened: true,
       [stateName]: value
     })
   }
 
-  private onClose (): void {
+  private onClose(): void {
     this.setState({
       isOpened: false
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     const { isOpened, closeBtnPosition } = this.state
 
     return (
@@ -53,11 +59,7 @@ export default class TagPage extends Taro.Component<{}, TagPageState> {
             closeBtnPosition={closeBtnPosition}
             onClose={this.onClose.bind(this)}
           >
-            <Image
-              style='width:100%'
-              mode='widthFix'
-              src={curtainPng}
-            />
+            <Image style='width:100%' mode='widthFix' src={curtainPng} />
           </AtCurtain>
 
           {/* 顶部关闭 */}
@@ -65,7 +67,15 @@ export default class TagPage extends Taro.Component<{}, TagPageState> {
             <View className='panel__title'>顶部关闭</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtButton onClick={this.handleChange.bind(this, 'closeBtnPosition', 'top')}>顶部关闭幕帘</AtButton>
+                <AtButton
+                  onClick={this.handleChange.bind(
+                    this,
+                    'closeBtnPosition',
+                    'top'
+                  )}
+                >
+                  顶部关闭幕帘
+                </AtButton>
               </View>
             </View>
           </View>
@@ -75,7 +85,15 @@ export default class TagPage extends Taro.Component<{}, TagPageState> {
             <View className='panel__title'>底部关闭</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtButton onClick={this.handleChange.bind(this, 'closeBtnPosition', 'bottom')}>底部关闭幕帘</AtButton>
+                <AtButton
+                  onClick={this.handleChange.bind(
+                    this,
+                    'closeBtnPosition',
+                    'bottom'
+                  )}
+                >
+                  底部关闭幕帘
+                </AtButton>
               </View>
             </View>
           </View>
@@ -85,7 +103,15 @@ export default class TagPage extends Taro.Component<{}, TagPageState> {
             <View className='panel__title'>左上关闭</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtButton onClick={this.handleChange.bind(this, 'closeBtnPosition', 'top-left')}>左上关闭幕帘</AtButton>
+                <AtButton
+                  onClick={this.handleChange.bind(
+                    this,
+                    'closeBtnPosition',
+                    'top-left'
+                  )}
+                >
+                  左上关闭幕帘
+                </AtButton>
               </View>
             </View>
           </View>
@@ -95,7 +121,15 @@ export default class TagPage extends Taro.Component<{}, TagPageState> {
             <View className='panel__title'>右上关闭</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtButton onClick={this.handleChange.bind(this, 'closeBtnPosition', 'top-right')}>右上关闭幕帘</AtButton>
+                <AtButton
+                  onClick={this.handleChange.bind(
+                    this,
+                    'closeBtnPosition',
+                    'top-right'
+                  )}
+                >
+                  右上关闭幕帘
+                </AtButton>
               </View>
             </View>
           </View>
@@ -105,7 +139,15 @@ export default class TagPage extends Taro.Component<{}, TagPageState> {
             <View className='panel__title'>左下关闭</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtButton onClick={this.handleChange.bind(this, 'closeBtnPosition', 'bottom-left')}>左下关闭幕帘</AtButton>
+                <AtButton
+                  onClick={this.handleChange.bind(
+                    this,
+                    'closeBtnPosition',
+                    'bottom-left'
+                  )}
+                >
+                  左下关闭幕帘
+                </AtButton>
               </View>
             </View>
           </View>
@@ -115,7 +157,15 @@ export default class TagPage extends Taro.Component<{}, TagPageState> {
             <View className='panel__title'>右下关闭</View>
             <View className='panel__content'>
               <View className='example-item'>
-                <AtButton onClick={this.handleChange.bind(this, 'closeBtnPosition', 'bottom-right')}>右下关闭幕帘</AtButton>
+                <AtButton
+                  onClick={this.handleChange.bind(
+                    this,
+                    'closeBtnPosition',
+                    'bottom-right'
+                  )}
+                >
+                  右下关闭幕帘
+                </AtButton>
               </View>
             </View>
           </View>

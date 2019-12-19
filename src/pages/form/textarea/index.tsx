@@ -1,4 +1,4 @@
-import Taro from '@tarojs/taro'
+import * as React from 'nervjs'
 import { View } from '@tarojs/components'
 import { CommonEvent } from '@tarojs/components/types/common'
 import { AtTextarea } from 'taro-ui'
@@ -15,12 +15,12 @@ interface IndexState {
   [key: string]: string
 }
 
-export default class Index extends Taro.Component<{}, IndexState> {
+export default class Index extends React.Component<{}, IndexState> {
   public config: Taro.PageConfig = {
     navigationBarTitleText: 'Taro UI'
   }
 
-  public constructor () {
+  public constructor() {
     super(...arguments)
     this.state = {
       value1: '',
@@ -30,13 +30,13 @@ export default class Index extends Taro.Component<{}, IndexState> {
     }
   }
 
-  private handleChange (stateName: string, e: TargetEvent): void {
+  private handleChange(stateName: string, e: TargetEvent): void {
     this.setState({
       [stateName]: e.target.value
     })
   }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     return (
       <View className='page'>
         {/* S Header */}
