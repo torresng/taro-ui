@@ -29,8 +29,8 @@ export default class Index extends React.Component<{}, IndexesState> {
     console.log('不需要实际实现', key)
   }
 
-  private onClick(item: CityItem): void {
-    console.log(item)
+  private onClick(): void {
+    // console.log(item)
   }
 
   private handleActionClick(): void {

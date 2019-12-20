@@ -24,7 +24,7 @@ const config = {
       ]
     }
   },
-  framework: 'react',
+  framework: 'nerv',
   mini: {
     webpackChain(chain) {
       chain.merge({
@@ -34,13 +34,13 @@ const config = {
             window: ['@tarojs/runtime', 'window'],
             document: ['@tarojs/runtime', 'document']
           })
-        ],
-        resolve: {
-          alias: {
-            nervjs: 'react',
-            'react-dom': '@tarojs/react'
-          }
-        }
+        ]
+        // resolve: {
+        //   alias: {
+        //     'nervjs': 'react',
+        //     'react-dom': '@tarojs/react'
+        //   }
+        // }
       })
     }
   },

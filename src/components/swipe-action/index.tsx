@@ -211,7 +211,6 @@ export default class AtSwipeAction extends AtComponent<AtSwipeActionProps, AtSwi
   public render (): JSX.Element {
     const { offsetSize, componentId } = this.state
     const { options } = this.props
-    console.log(options)
     const rootClass = classNames('at-swipe-action', this.props.className)
     const transform = this.computeTransform(offsetSize)
     const transformStyle: React.CSSProperties = transform ? { transform } : {}
