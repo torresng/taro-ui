@@ -1,11 +1,20 @@
 import { MouseEvent, ComponentClass } from 'react'
-import { CommonEventFunction, CommonEvent } from '@tarojs/components/types/common'
+import {
+  CommonEventFunction,
+  CommonEvent
+} from '@tarojs/components/types/common'
 import { InputProps } from '@tarojs/components/types/Input'
 
 import AtComponent from './base'
 
-declare type OmitInputProps = Omit<InputProps, 'className' | 'type' | 'onBlur' | 'onFocus' | 'onChange' | 'onConfirm'>
-declare type InputFunction<T extends string | number> = (value: T, event: CommonEvent) => void
+declare type OmitInputProps = Omit<
+  InputProps,
+  'className' | 'type' | 'onBlur' | 'onFocus' | 'onChange' | 'onConfirm'
+>
+declare type InputFunction<T extends string | number> = (
+  value: T,
+  event: CommonEvent
+) => void
 
 export interface AtInputProps extends AtComponent, OmitInputProps {
   /**
@@ -103,6 +112,10 @@ export interface AtInputProps extends AtComponent, OmitInputProps {
    * 点击错误按钮触发的事件
    */
   onErrorClick?: () => void
+  /**
+   * 点击左侧标题触发的事件
+   */
+  onFieldClick?: () => void
 }
 
 declare const AtInput: ComponentClass<AtInputProps>
